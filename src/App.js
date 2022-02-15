@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import NavBar from './layout/navbar';
+import Dashboard from './modules/dashboard/index';
+import Login from './signIn/login';
+import SignUp from './signIn/signup';
+import Home from './home/home';
+import { useEffect } from 'react';
+import { getBirthdaysStart } from './redux/reducers/birthdays';
 
 function App() {
+  const dispatch = useDispatch();
+  const { isLoggedIn } = useSelector(state => state.login);
+  const birthdays = useSelector(state => state.birthday);
+  console.log(`data `, birthdays);
+
+  useEffect(() => {
+    dispatch(getBirthdaysStart());
+  }, [dispatch])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className="App-main">
+          <Router>
+            <NavBar isLoggedIn={isLoggedIn} />
+            <Switch>
+              <Route exact path="/" component={isLoggedIn ? Home : Dashboard} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={SignUp} />
+            </Switch>
+          </Router>
+        </div>
     </div>
   );
 }

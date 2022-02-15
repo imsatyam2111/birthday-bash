@@ -1,38 +1,55 @@
-.App {
+body {
+  background: #faf2f2c2;
+}
+.nav-links {
+  color: white;
+  text-decoration: none;
+}
+.App-main {
+  padding: 24px 12%;
+  margin-top: 36px;
+}
+.dashboard-text {
+  font-size: 1.2rem;
+}
+.heading {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.input-name,
+.input-date {
+  margin-right: 16px !important;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.add-button {
+  padding: 7px 12px !important;
+  /* padding-bottom: 7px !important; */
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.signup,
+.login {
+  margin-left: 40%;
+  margin-top: 36px;
 }
-
-.App-link {
-  color: #61dafb;
+.input {
+  display: block !important;
+  margin: 12px 0 !important;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-input {
+  width: 250px !important;
+  margin-top: 15px !important;
+}
+.err-message {
+  color: red;
+  font-size: 10px !important;
+}
+.home-container {
+  padding: 24px 12%;
+}
+.table {
+  margin-top: 24px;
+  margin-left: -70px;
+}
+.delete {
+  cursor: pointer;
+}
+.delete:hover {
+  color: red;
 }
